@@ -28,18 +28,67 @@ const authorizedUsersList = ["damianop@gmail.com","riccardob@gmail.com","andreat
 let emailFound = false;
 
 for (let i = 0; i < authorizedUsersList.length; i++) {
-
+  
   if (authorizedUsersList[i] === email) {
     emailFound = true;
     
   }
-
+  
 }
 
 if (emailFound == true) {
   document.getElementById("out-put-text").innerHTML = "You're one of us, Welcome!";
 }
 
-else {
+else  {
   document.getElementById("out-put-text").innerHTML = "Thanks for giving me your e-mail, you've been scammed";
+};
+
+if (email == null) {
+  document.getElementById("out-put-text").innerHTML = " ";
 }
+
+/* ----------FINE PRIMO ESERCIZIO----------*/
+
+
+
+/* DADI 
+
+ Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
+
+  Stabilire il vincitore, in base a chi fa il punteggio più alto. 
+
+
+  1. creo un bottone con evento onclick per lanciare i dadi
+  2. genero un random number da 1 a 6 utilizzando random math
+  3. dichiaro vincitore/perdente o pareggio con if statements
+
+*/
+
+
+function diceThrower() {
+
+  const userDiceResult = Math.floor(Math.random() * 6) + 1;
+  const computerDiceResult = Math.floor(Math.random() * 6) + 1;
+
+  document.getElementById("user-dice").innerHTML = "User Dice: " + userDiceResult;
+  document.getElementById("computer-dice").innerHTML =  "Computer Dice: " + computerDiceResult;
+
+  if (userDiceResult > computerDiceResult) {
+    document.getElementById("result-text").innerHTML = "User Wins";
+  } 
+
+  else if (userDiceResult == computerDiceResult) {
+    document.getElementById("result-text").innerHTML = "Draw";
+  }
+
+  else {
+    document.getElementById("result-text").innerHTML = "Computer Wins";
+
+  };
+
+}
+
+
+
+
